@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const connectionUrl = "mongodb+srv://shahinansari107:W2i0uYSQQEasKTO2@cluster0.ee6wo.mongodb.net/FoodEase_App?retryWrites=true&w=majority&appName=Cluster0"
+require('dotenv').config();
 const mongoDB = async () => {
    try {
-      await mongoose.connect(connectionUrl)
+      await mongoose.connect(process.env.DATABASE_URL)
       const db = mongoose.connection.db;
       const fetched_data = db.collection("FoodItems");
       const data = await fetched_data.find({}).toArray();
