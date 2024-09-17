@@ -19,7 +19,6 @@ router.post("/createUser",
                email: req.body.email,
                password: securePassword
             });
-            console.log("registered in new db")
             return res.status(200).json({ message: 'registered successfully' })
          }
          catch (error) {
